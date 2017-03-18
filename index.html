@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>本地二维码</title>
+
+<style type="text/css">
+ 
+body{
+}
+#text{
+    width: 400px;
+    height: 200px;
+}
+#qrWrap table{
+    margin: 0 auto;
+}
+       
+</style>
+
+</head>
+<body>
+
+<textarea id="text"></textarea>
+<div id="qrWrap"></div>
+
+</body>
+<script src='bower_components/qrcode/dist/arale-qrcode/3.0.5/index.js'></script>
+<script>
+
+changeQr();
+var timer, old;
+
+function changeQr() {
+    var text = document.querySelector('textarea').value;
+    if (old == text) return;
+    old = text;
+    timer && clearTimeout(timer);
+    timer = setTimeout(function(){
+        timer = 0;
+        document.querySelector('#qrWrap').appendChild(new AraleQRCode(text));
+    }, 500);
+}
+
+document.querySelector('textarea').addEventListener('input', changeQr);
+
+</script>
+</html>

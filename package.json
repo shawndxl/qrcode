@@ -1,0 +1,11 @@
+{
+  "name": "qrcode",
+  "version": "0.0.1",
+  "description": "qrcode tool",
+  "private": true,
+  "devDependencies": {},
+  "dependencies": {},
+  "scripts": {
+    "debug": "bower install && fis3 server start --type php -p 8101 && fis3 release -wL"
+  }
+}
