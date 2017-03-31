@@ -1,6 +1,0 @@
-{
-  "name": "canvas",
-  "dependencies": {
-    "qrcode": "https://github.com/aralejs/qrcode.git#^3.0.5"
-  }
-}

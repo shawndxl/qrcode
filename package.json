@@ -4,8 +4,11 @@
   "description": "qrcode tool",
   "private": true,
   "devDependencies": {},
-  "dependencies": {},
+  "dependencies": {
+    "arale-qrcode": "git+https://github.com/aralejs/qrcode.git",
+    "jquery": "^3.2.1"
+  },
   "scripts": {
-    "debug": "bower install && fis3 server start --type php -p 8101 && fis3 release -wL"
+    "debug": "fis3 server start --type php -p 8101 && fis3 release -wL"
   }
 }

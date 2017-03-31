@@ -6,43 +6,59 @@
 
 <style type="text/css">
  
-body{
+* {
+	box-sizing: border-box;
 }
 #text{
     width: 400px;
-    height: 200px;
+    height: 250px;
+    padding: 20px;
+    font-size: 20px;
 }
-#qrWrap table{
-    margin: 0 auto;
+.fl {
+	float: left;
+	margin-right: 50px;
+}
+
+#urlToQr {
+	overflow: auto;
 }
        
+#qrToUrl {
+	width: 700px;
+	margin-top: 50px;
+	padding: 120px 20px;
+	border: 1px dotted #666;
+	border-radius: 10px;
+	cursor: pointer;
+}
+
+#qrToUrl h1 {
+	text-align: center;
+	color: #666;
+    word-wrap: break-word;
+}
 </style>
 
 </head>
 <body>
 
-<textarea id="text"></textarea>
-<div id="qrWrap"></div>
+<div class="wrap">
+	<div id="urlToQr">
+		<textarea id="text" class="fl" placeholder="input url"></textarea>
+		<div id="qrWrap" class="fl"></div>
+	</div>
+
+	<div id="qrToUrl">
+		<h1>Paste Qrcode</h1>
+	</div>
+</div>
 
 </body>
-<script src='bower_components/qrcode/dist/arale-qrcode/3.0.5/index.js'></script>
-<script>
+<script src='node_modules/arale-qrcode/dist/arale-qrcode/3.0.5/index.js'></script>
 
-changeQr();
-var timer, old;
+<script src='js/qrReader.js'></script>
+<script src='js/index.js'></script>
+<script src='js/qrread.js'></script>
 
-function changeQr() {
-    var text = document.querySelector('textarea').value;
-    if (old == text) return;
-    old = text;
-    timer && clearTimeout(timer);
-    timer = setTimeout(function(){
-        timer = 0;
-        document.querySelector('#qrWrap').appendChild(new AraleQRCode(text));
-    }, 500);
-}
-
-document.querySelector('textarea').addEventListener('input', changeQr);
-
-</script>
 </html>
